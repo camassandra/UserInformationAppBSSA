@@ -1,0 +1,9 @@
+html
+	title 
+	head <strong> WELCOME TO MY APP </strong> 
+	body
+		h1 the following users are on my app: 
+		each Indexdata in indexdata
+			p #{Indexdata.firstname} #{Indexdata.lastname}, 
+			p and their registered email address is 
+			p.fetchnames #{Indexdata.email}
