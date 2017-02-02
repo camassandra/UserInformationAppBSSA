@@ -1,0 +1,23 @@
+{
+  "name": "userinformationapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camassandra/UserInformationAppBSSA.git"
+  },
+  "author": "Camilla",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/camassandra/UserInformationAppBSSA/issues"
+  },
+  "homepage": "https://github.com/camassandra/UserInformationAppBSSA#readme",
+  "dependencies": {
+    "express": "^4.14.1",
+    "pug": "^2.0.0-beta10"
+  }
+}
