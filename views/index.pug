@@ -1,7 +1,17 @@
 html
-	title 
-	head <strong> WELCOME TO MY APP </strong> 
+	title camilla's app
+	head <strong> WELCOME TO MY APP - SAVE THE SEA ANIMALS </strong> 
+		link(href='/includes/pughead.css', rel='stylesheet')
+		embed(src='/includes/waves.mp3', autostart='true', loop='true', width='2', height='0')
 	body
+		ul
+			li
+				a(href='/') Home
+			li
+				a(href='/search') Search
+			li
+				a(href='/register') Sign Up
+				
 		h1 the following users are on my app: 
 		each Indexdata in indexdata
 			p #{Indexdata.firstname} #{Indexdata.lastname}, 

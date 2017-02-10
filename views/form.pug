@@ -1,22 +1,105 @@
 <!--extends layout-->
+html
+  title user form 
+  style(type='text/css').
+      #tfheader{
+      background-color:#86bad8;
+      }
+      #tfnewsearch{
+      float:center;
+      padding:20px;
+      }
+      .tftextinput{
+      margin: 0;
+      padding: 5px 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:14px;
+      border:1px solid #0076a3; border-right:0px;
+      border-top-left-radius: 5px 5px;
+      border-bottom-left-radius: 5px 5px;
+      }
+      .tfbutton {
+      margin: 0;
+      padding: 5px 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:14px;
+      outline: none;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      color: #ffffff;
+      border: solid 1px #0076a3; border-right:0px;
+      background: #0095cd;
+      background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+      background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+      border-top-right-radius: 5px 5px;
+      border-bottom-right-radius: 5px 5px;
+      }
+      .tfbutton:hover {
+      text-decoration: none;
+      background: #007ead;
+      background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+      background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+      }
+      /* Fixes submit button height problem in Firefox */
+      .tfbutton::-moz-focus-inner {
+      border: 0;
+      }
+      .tfclear{
+      clear:both;
+      }    
+      .ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #D09AE3;
+    }
 
+    .li {
+    float: left;
+    }
+
+    .li .a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    .li .a:hover {
+        background-color: #111;
+    }
 block content
   .main.container
     .row
       .col-md-6.col-md-offset-3
-        h1.display-4.m-b-2 Sign Up
+        link(href='/views/includes/pughead.css', rel='stylesheet')
+        body
+          
+        h1 Sign Up to my App (or the sea animals will cry)
+        ul.ul
+            li.li
+              a.a(href='/') Home
+            li.li
+              a.a(href='/search') Search
+            li.li
+              a.a(href='/newuserform') Sign Up
 
         // register form
-        form(method='POST' action='/register')
+        #tfheader
+        form#tfnewsearch(method='POST' action='/register')
           div.form-group
             label(for='firstname') First Name:
-            input#name.form-control(type='text', placeholder='First Name' name='firstname')
+            input#name.tftextinput(type='text', placeholder='First Name' name='firstname')
           div.form-group
             label(for='lastname') Last Name:
-            input#favoriteBook.form-control(type='text', placeholder='Last Name' name='lastname')
+            input#favoriteBook.tftextinput(type='text', placeholder='Last Name' name='lastname')
           div.form-group
             label(for='email') Email:
-            input#email.form-control(type='email', placeholder='name@email.com' name='email')
+            input#email.tftextinput(type='email', placeholder='name@email.com' name='email')
           
-          button.btn.btn-primary(type='submit') Sign up
+          button.tfbutton(type='submit') Sign up
 
