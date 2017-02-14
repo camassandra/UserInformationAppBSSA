@@ -1,94 +1,31 @@
 <!--extends layout-->
 html
-  title user form 
-  style(type='text/css').
-      #tfheader{
-      background-color:#86bad8;
-      }
-      #tfnewsearch{
-      float:center;
-      padding:20px;
-      }
-      .tftextinput{
-      margin: 0;
-      padding: 5px 15px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size:14px;
-      border:1px solid #0076a3; border-right:0px;
-      border-top-left-radius: 5px 5px;
-      border-bottom-left-radius: 5px 5px;
-      }
-      .tfbutton {
-      margin: 0;
-      padding: 5px 15px;
-      font-family: Arial, Helvetica, sans-serif;
-      font-size:14px;
-      outline: none;
-      cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      color: #ffffff;
-      border: solid 1px #0076a3; border-right:0px;
-      background: #0095cd;
-      background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
-      background: -moz-linear-gradient(top,  #00adee,  #0078a5);
-      border-top-right-radius: 5px 5px;
-      border-bottom-right-radius: 5px 5px;
-      }
-      .tfbutton:hover {
-      text-decoration: none;
-      background: #007ead;
-      background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
-      background: -moz-linear-gradient(top,  #0095cc,  #00678e);
-      }
-      /* Fixes submit button height problem in Firefox */
-      .tfbutton::-moz-focus-inner {
-      border: 0;
-      }
-      .tfclear{
-      clear:both;
-      }    
-      .ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #D09AE3;
-    }
-
-    .li {
-    float: left;
-    }
-
-    .li .a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-    }
-
-    /* Change the link color to #111 (black) on hover */
-    .li .a:hover {
-        background-color: #111;
-    }
+  title user form
+  head
+    style
+    link(href='css/pughead.css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Pangolin', rel='stylesheet')
+    embed(src='/seagull.mp3', autostart='true', loop='true', width='2', height='0')
+  
 block content
   .main.container
     .row
       .col-md-6.col-md-offset-3
-        link(href='/views/includes/pughead.css', rel='stylesheet')
+        
         body
           
-        h1 Sign Up to my App (or the sea animals will cry)
+        P.p <strong> WELCOME TO MY APP - SAVE THE SEA ANIMALS </strong>
+
         ul.ul
             li.li
               a.a(href='/') Home
             li.li
               a.a(href='/search') Search
             li.li
-              a.a(href='/newuserform') Sign Up
+              a.a(href='/register') Sign Up
 
         // register form
+        h1.h1 Sign Up to my App (or the sea animals will cry)
         #tfheader
         form#tfnewsearch(method='POST' action='/register')
           div.form-group

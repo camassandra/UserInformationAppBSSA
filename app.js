@@ -8,10 +8,11 @@ var bodyParser = require('body-parser')
 var readjson = require(__dirname+"/search-module");
 
 //here comes the middleware stuff!!!!!!!!
-app.use(express.static(__dirname+'/views/includes')) //a programming line to serve from a folder named 'static' 
-//containinbg static files
-//bodyparser here
 
+app.use(express.static(__dirname+'/includes')) //a programming line to serve from a folder named 'static' 
+//containing static files
+
+//bodyparser here
 app.use(bodyParser.urlencoded({extended: true}))
 
 
@@ -53,6 +54,18 @@ app.post('/searchhandler', function(request, response){
 	})
 })
 
+app.post('/search', function(request, response){
+	console.log('triggered')
+	console.log(request.body)
+	console.log(request.body.keyword)
+
+	//read users.json file -- do it with fs or readjson
+	//loop over the array of objects and compare them
+	//push all the matching results in an array
+	//send this array with response.send
+
+	response.send('here the array where you pushed matching redult')
+})
 
 
 //route 4 
@@ -82,6 +95,6 @@ app.post("/register", function(request, response) {
 
 
 app.listen(3000, function(){
-	console.log('listening has started');
+	console.log('listening on 3000 has started');
 });
 

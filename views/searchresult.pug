@@ -1,16 +1,26 @@
+<!--extends layout-->
 html
-	head 
-		title your query
-		
-	body
-		ul.ul
-			li.li
-				a.a(href='/') Home
-			li.li
-				a.a(href='/search') Search
-			li.li
-				a.a(href='/newuserform') Sign Up
-		h1 <strong> THE FOLLOWING SEA ANIMAL IS IN THE APP </strong> 
-			p #{userfound.firstname}
-			p #{userfound.lastname} 
-			
+  title Search results 
+  head
+    style
+    link(href='css/pughead.css', rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Pangolin', rel='stylesheet')
+    embed(src='/seagull.mp3', autostart='true', loop='true', width='2', height='0')
+  
+block content
+  .main.container
+    .row
+      .col-md-6.col-md-offset-3
+        
+body
+p.p <strong> WELCOME TO MY APP - SAVE THE SEA ANIMALS </strong>
+    ul.ul
+      li.li
+        a.a(href='/') Home
+      li.li
+        a.a(href='/search') Search
+      li.li
+        a.a(href='/register') Sign Up!  
+
+    h2.h2 THE SEA ANIMAL #{userfound.firstname}  #{userfound.lastname} ALREADY REGISTERED TO THE APP...
+    p.p ps: WE LOVE THE SEA ANIMALS, and Maddie and Ina

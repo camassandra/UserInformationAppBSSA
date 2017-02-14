@@ -3,12 +3,12 @@ var fs = require('fs');
 
 const AllUsers = function (filename, callback){
 		fs.readFile(filename, 'utf-8', function(err, data){
-		console.log('parsing users.json')
-		if (err){
-			throw err;
-		}
-		const fullusers =JSON.parse(data);
-		callback(fullusers);
+			console.log('parsing users.json')
+			if (err){
+				throw err;
+			}
+			const fullusers =JSON.parse(data);
+			callback(fullusers);
 		});
 	};
 
