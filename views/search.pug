@@ -25,12 +25,12 @@ body
       p.p 
       #tfheader
         form#tfnewsearch(method='post', action='/searchhandler')
-          input.tftextinput(type='text', name='searchquery' placeholder="first name", size='21', maxlength='120')
+          input.tftextinput(list="suggestion-box", type='text', name='searchquery', id='input' placeholder="type a username", size='21', maxlength='120')
+          datalist#suggestion-box
           input.tfbutton(type='submit', value='search')
-        .tfclear
-        #suggesstion-box
-      h2.h2 ps: WE LOVE THE SEA ANIMALS, and Maddie and Ina
+          
+      h2.h2 ps: WE LOVE THE SEA ANIMALS
     script(src='/js/jquery-3.1.1.min.js')
-    script(src='js/autocomplete.js')
+    script(src='/js/autocomplete2.js')
 
   

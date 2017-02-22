@@ -6,6 +6,7 @@ const fs = require('fs')
 var bodyParser = require('body-parser')
 
 var readjson = require(__dirname+"/search-module");
+console.info(__dirname)
 
 //here comes the middleware stuff!!!!!!!!
 
@@ -41,12 +42,13 @@ app.post('/searchhandler', function(request, response){
 		for (var i = 0; i < data.length; i++) {
 			var lowerCaseFirstname = data[i].firstname.toLowerCase()
 			var lowerCaseLastname = data[i].lastname.toLowerCase()
-			console.log(lowerCaseFirstname)
-			if (searchqueryLower === lowerCaseFirstname || searchqueryLower===lowerCaseLastname){
+			var fullName = data[i].firstname + " " + data[i].lastname
+			console.log(fullName)
+			if (searchqueryLower === lowerCaseFirstname || searchqueryLower===lowerCaseLastname || searchquery === fullName){
 				response.render('searchresult', {userfound: data[i]})
 				console.log({userfound:data[i]})
 			}
-			//else {
+			//else if () {
 				//response.redirect('/')
 				//response.status(404).json({message: "User not found"})
 			//}
@@ -55,16 +57,32 @@ app.post('/searchhandler', function(request, response){
 })
 
 app.post('/search', function(request, response){
-	console.log('triggered')
-	console.log(request.body)
-	console.log(request.body.keyword)
-
+	console.log('suggestion: ',request.body.suggestion)
+	var typed = request.body.suggestion
+	var typedLower = typed.toLowerCase() 
+	var indices =[]
 	//read users.json file -- do it with fs or readjson
-	//loop over the array of objects and compare them
-	//push all the matching results in an array
-	//send this array with response.send
+	readjson(__dirname+'/users.json', function(data){
+		for (var i = data.length-1; i>=0; i--) {
+			console.log(data)
+			var lowerCaseFirstname = data[i].firstname.toLowerCase()
+			var lowerCaseLastname = data[i].lastname.toLowerCase()
 
-	response.send('here the array where you pushed matching redult')
+			var name = lowerCaseFirstname.indexOf(typedLower)
+			var surname = lowerCaseLastname.indexOf(typedLower)
+
+			// if (typed === data[i].firstname){
+			// 	response.send(typed)
+			// 	}
+		//loop over the array of objects and compare them
+			if ( name > -1 || surname > -1) {
+				console.log(name)
+				indices.push({'firstname':data[i].firstname, 'lastname': data[i].lastname})
+				console.log(indices)
+			 }
+		}
+		response.send({text: indices})
+	})
 })
 
 
@@ -96,5 +114,4 @@ app.post("/register", function(request, response) {
 
 app.listen(3000, function(){
 	console.log('listening on 3000 has started');
-});
-
+})
